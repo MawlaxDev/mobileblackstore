@@ -23,10 +23,8 @@ class _MyAppState extends State<MyApp> {
     Categories(name: 'electronics', imageUrl: 'img/electronics04.jpg'),
   ];
 
-  // Define a list of all products
   List<Product> allproducts = [];
 
-  // Selected category
   String selectedCategory = 'home';
 
   @override
@@ -42,16 +40,16 @@ class _MyAppState extends State<MyApp> {
       var response = await http.get(url);
       if (response.statusCode == 200) {
         setState(() {
-          allproducts.clear();  // Clear any existing products
+          allproducts.clear();
           var jsonArray = convert.jsonDecode(response.body);
           print('Fetched products: $jsonArray');
           for (var row in jsonArray) {
             Product p = Product(
-              row['name'] ?? 'Unknown',  // Fallback if 'name' is null
-              row['imageUrl'] ?? 'No image URL',  // Fallback if 'imageUrl' is null
-              double.tryParse(row['price']) ?? 0.0,  // Use tryParse to avoid errors
-              row['details'] ?? 'No details',  // Fallback if 'details' is null
-              row['category'] ?? 'Unknown',  // Fallback if 'category' is null
+              row['name'] ?? 'Unknown',
+              row['imageUrl'] ?? 'No image URL',
+              double.tryParse(row['price']) ?? 0.0, 
+              row['details'] ?? 'No details',
+              row['category'] ?? 'Unknown',
             );
             allproducts.add(p);
           }
@@ -213,7 +211,6 @@ class _MyAppState extends State<MyApp> {
                   ],
                 ),
               ),
-              // Ensure that the ListProducts widget gets the list of products
               ListProducts(category: currentCategory.name, products: allproducts),
             ],
           ),
