@@ -3,7 +3,7 @@ import 'product.dart';
 
 class ListProducts extends StatelessWidget {
   final String category;
-  final List<Product> products; // Make sure this is a List<Product>
+  final List<Product> products;
 
   ListProducts({Key? key, required this.category, required this.products}) : super(key: key);
 
