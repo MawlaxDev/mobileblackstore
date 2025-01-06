@@ -43,7 +43,7 @@ class ProductDetailScreen extends StatelessWidget {
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    fontFamily: 'Nevan', // Title color
+                    fontFamily: 'Nevan',
                   ),
                 ),
                 const Spacer(),
